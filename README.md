@@ -11,3 +11,4 @@
     - Michael Rojas, michaels.rojas13@csu.fullerton.edu
     - Karene Rosales, krosales@csu.fullerton.edu 
     - Karim Villasenor, kvillase26@csu.fullerton.edu
+### NOTE: *test_cases* will have 30 test cases for all 30 syntax rules
