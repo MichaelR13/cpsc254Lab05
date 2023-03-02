@@ -5,35 +5,65 @@
 int main(int argc, char *argv[])
 {
   // R28 <Primary>
+  //
   // R27 <Factor>
+  // 
   // R26.1 <Term'>
+  // 
   // R26 <Term>
+  // 
   // R25 <Expression>
+  // 
   // R25.1 <Expression'>
+  // 
   // R24 <Relop>
+  // 
   // R23 <Condition>
+  // 
   // R22 <While>
+  // 
   // R21 <Scan>
+  // 
   // R20 <Print>
+  // 
   // R19 <Return>
+  // 
   // R18 <If>
+  // 
   // R17 <Assign>
+  // 
   // R16 <Compound>
+  // 
   // R15 <Statement>
+  // 
   // R14 <Statement List>
+  // 
   // R13 <IDs>
+  // 
   // R12 <Declaration>
+  // 
   // R11 <Declaration List>
+  // 
   // R10 <Opt Declaration List>
+  // 
   // R9 <Body>
+  // 
   // R8 <Qualifier>
+  // 
   // R7 <Parameter>
+  // 
   // R6 <Parameter List>
+  // 
   // R5 <Opt Parameter List>
+  // 
   // R4 <Function>
+  // 
   // R3 <Function Definitions>
+  // 
   // R2 <Opt Function Definitions>
+  // 
   // R1 <Rat20F>
+  //
 
   return 0;
 }
