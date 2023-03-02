@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
   // R28 <Primary>
   //
   // R27 <Factor>
-  // 
+  // Michael: R27 <Factor> :: = -<Primary> | <Primary>
   // R26.1 <Term'>
   // 
   // R26 <Term>
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
   // R24 <Relop>
   // 
   // R23 <Condition>
-  // 
+  // Michael: R23 <Condition> :: = <Expression>  <Relop>   <Expression>
   // R22 <While>
   // 
   // R21 <Scan>
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
   // R9 <Body>
   // 
   // R8 <Qualifier>
-  // 
+  // Michael: R8 <Qualifier> :: = int | boolean | real
   // R7 <Parameter>
   // 
   // R6 <Parameter List>
