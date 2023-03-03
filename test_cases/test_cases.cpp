@@ -2,7 +2,9 @@
 
 #include <iostream>
 #include <vector>
-
+#include <fstream>
+#include "/home/chewfasa/Documents/Fullerton/Spring 2023/CPSC 254/Labs/Lab 5/cpsc254Lab05/procedure_functions.cpp"
+#include "/home/chewfasa/Documents/Fullerton/Spring 2023/CPSC 254/Labs/Lab 5/cpsc254Lab05/lexer.cpp"
 
 //bool identifier_helper(token_323 input_token);
 
@@ -136,7 +138,23 @@
 //R5. <Opt Parameter List> :: = <Parameter List> | <Empty>
 //---------------------------------------------------------------------------------------------------
 //bool procedure_Opt_Parameter_List(vector<token_323>& all_tokens, int& loc);
+void test_R5()
+{
+  bool test_results = false;
+  std::vector<token_323> all_tokens;
+  int loc;
+  std::ifstream input_file("/home/chewfasa/Documents/Fullerton/Spring 2023/CPSC 254/Labs/Lab 5/input_file.txt");
 
+  all_tokens.push_back(lexer_323(input_file));
+
+  test_results = procedure_Opt_Parameter_List(all_tokens, loc);
+
+  if (test_results == false) {
+    std::cout << "Failed: Testing of R5 <Opt Parameter List>" << std::endl;
+  } else {
+    std::cout << "Passed: Testing of R5 <Opt Parameter List>" << std::endl;
+  }
+}
 
 //R4. <Function> :: = function  <Identifier>  (  <Opt Parameter List>  )   < Opt Declaration List >   <Body>
 //bool procedure_Function(vector<token_323>& all_tokens, int& loc);
@@ -211,7 +229,7 @@ int main(int argc, char *argv[])
   // R6 <Parameter List>
   // 
   // R5 <Opt Parameter List>
-  //
+  test_R5();
   // R4 <Function>
   // 
   // R3 <Function Definitions>
