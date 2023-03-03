@@ -3,6 +3,74 @@
 #include <iostream>
 #include <vector>
 
+<<<<<<< HEAD
+=======
+int main(int argc, char *argv[])
+{
+  // R28 <Primary>
+  //
+  // R27 <Factor>
+  // Michael: R27 <Factor> :: = -<Primary> | <Primary>
+  // R26.1 <Term'>
+  // 
+  // R26 <Term>
+  // 
+  // R25 <Expression>
+  // 
+  // R25.1 <Expression'>
+  // 
+  // R24 <Relop>
+  // 
+  // R23 <Condition>
+  // Michael: R23 <Condition> :: = <Expression>  <Relop>   <Expression>
+  // R22 <While>
+  // 
+  // R21 <Scan>
+  // 
+  // R20 <Print>
+  // 
+  // R19 <Return>
+  // 
+  // R18 <If>
+  // 
+  // R17 <Assign>
+  // 
+  // R16 <Compound>
+  // 
+  // R15 <Statement>
+  // 
+  // R14 <Statement List>
+  // 
+  // R13 <IDs>
+  // 
+  // R12 <Declaration>
+  // 
+  // R11 <Declaration List>
+  // 
+  // R10 <Opt Declaration List>
+  // 
+  // R9 <Body>
+  // 
+  // R8 <Qualifier>
+  // Michael: R8 <Qualifier> :: = int | boolean | real
+  // R7 <Parameter>
+  // 
+  // R6 <Parameter List>
+  // 
+  // R5 <Opt Parameter List>
+  // 
+  // R4 <Function>
+  // 
+  // R3 <Function Definitions>
+  // 
+  // R2 <Opt Function Definitions>
+  // 
+  // R1 <Rat20F>
+  //
+
+  return 0;
+}
+>>>>>>> 1511390a1156fe9264ff9de23371009554393d81
 
 //bool identifier_helper(token_323 input_token);
 
