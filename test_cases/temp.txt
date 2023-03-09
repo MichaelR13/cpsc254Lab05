@@ -1,1 +1,5 @@
-Will add test cases doc later in this directory.
+if (name1 == name2) {
+  return true;
+} else {
+  return false;
+}
