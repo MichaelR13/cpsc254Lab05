@@ -204,45 +204,15 @@ void test_R20()
 
     // create token for "put" keyword
     token_323 token1;
-    token1.token_update("put");
+    token1.token_update("Keyword");
     token1.lexeme_update("put");
     all_tokens.push_back(token1);
 
     // create token for "(" symbol
-    token_323 token2;
-    token2.token_update("(");
-    token2.lexeme_update("(");
-    all_tokens.push_back(token2);
-
-    // create token for "3" number
     token_323 token3;
-    token3.token_update("3");
-    token3.lexeme_update("3");
+    token3.token_update("Operator");
+    token3.lexeme_update(";");
     all_tokens.push_back(token3);
-
-    // create token for ")" symbol
-    token_323 token4;
-    token4.token_update(")");
-    token4.lexeme_update(")");
-    all_tokens.push_back(token4);
-
-    // create token for ";" symbol
-    token_323 token5;
-    token5.token_update(";");
-    token5.lexeme_update(";");
-    all_tokens.push_back(token5);
-
-    // create token for "EOF" symbol
-    token_323 token6;
-    token6.token_update("EOF");
-    token6.lexeme_update("EOF");
-    all_tokens.push_back(token6);
-
-    // create token for "3" number
-    token_323 token7;
-    token7.token_update("3");
-    token7.lexeme_update("3");
-    all_tokens.push_back(token7);
 
     // call procedure_Print with the created tokens
     result = procedure_Print(all_tokens, loc);
