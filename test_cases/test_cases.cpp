@@ -20,6 +20,43 @@
 // R26.1 <Term'> :: = * <Factor> <Term>' | / <Factor> <Term>' | ϵ
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Term_q(vector<token_323>& all_tokens, int& loc);
+void test_R26_1() {
+    // Open the input file
+    std::ifstream input_file("temp.txt");
+
+    // Check if the file was opened successfully
+    if (!input_file.is_open()) {
+        std::cout << "Failed to open input file" << std::endl;
+        return;
+    }
+
+    // Read the input from the file and store it in a vector of tokens
+    std::vector<token_323> all_tokens;
+    int loc = 0;
+    int check_eof;
+
+    while (!input_file.eof()) {
+        all_tokens.push_back(lexer_323(input_file));
+        check_eof = input_file.peek();
+        if (check_eof == EOF) {
+            break;
+        }
+    }
+
+    // Call the procedure and check the results
+    bool test_results = procedure_Term_q(all_tokens, loc);
+    if (test_results == false) {
+        std::cout << "Failed: Testing of R26.1 <Term'>" << std::endl;
+    } else {
+        std::cout << "Passed: Testing of R26.1 <Term'>" << std::endl;
+    }
+
+    // Print out all the tokens in the vector
+    std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+    for (auto token : all_tokens) {
+        token.token_print_helper();
+    }
+}
 
 // R26. <Term>    :: = <Factor> <Term>'
 //---------------------------------------------------------------------------------------------------
