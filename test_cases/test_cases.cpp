@@ -333,7 +333,7 @@ void test_R16()
   //initialize location variable
   int loc = 0;
   
-  bool result1 = procedure_Body(all_tokens, loc);
+  bool result1 = procedure_Compound(all_tokens, loc);
   if (result1) 
   {
     std::cout << "Test case 16: Passed" << std::endl;
