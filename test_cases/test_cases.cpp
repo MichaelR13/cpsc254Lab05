@@ -196,6 +196,39 @@ void test_R23()
 // R20. <Print> :: = put(<Expression>);
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Print(vector<token_323>& all_tokens, int& loc);
+void test_R20()
+{
+  vector<token_323> all_tokens;
+
+  // Add tokens to vector
+  token_323 token1, token2, token3, token4, token5;
+  token1.token_update("Keyword");
+  token1.lexeme_update("put");
+  token2.token_update("Symbol");
+  token2.lexeme_update("(");
+  token3.token_update("Number");
+  token3.lexeme_update("42");
+  token4.token_update("Symbol");
+  token4.lexeme_update(")");
+  token5.token_update("Symbol");
+  token5.lexeme_update(";");
+  all_tokens.push_back(token1);
+  all_tokens.push_back(token2);
+  all_tokens.push_back(token3);
+  all_tokens.push_back(token4);
+  all_tokens.push_back(token5);
+
+  int loc = 0;
+  bool result = procedure_Print(all_tokens, loc);
+  if (result)
+  {
+    std::cout << "Test case 20: Passed" << std::endl;
+  } else 
+  {
+    std::cout << "Test case 20: Failed" << std::endl;
+  }
+
+}
 
 // R19. <Return> :: = return; | return <Expression>;
 //---------------------------------------------------------------------------------------------------
@@ -275,6 +308,41 @@ void test_R18()
 // R16. <Compound> :: = { <Statement List> }
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Compound(vector<token_323>& all_tokens, int& loc);
+void test_R16() 
+{
+  vector<token_323> all_tokens;
+
+  // Add tokens for a valid statement list
+  token_323 token1, token2, token3;
+  token1.token_update("Keyword");
+  token1.lexeme_update("int");
+  token2.token_update("Identifier");
+  token2.lexeme_update("x");
+  token3.token_update("Delimiter");
+  token3.lexeme_update(";");
+  all_tokens.push_back(token1);
+  all_tokens.push_back(token2);
+  all_tokens.push_back(token3);
+  token_323 token4, token5;
+  token4.token_update("Delimiter");
+  token4.lexeme_update("{");
+  token5.token_update("Delimiter");
+  token5.lexeme_update("}");
+  all_tokens.push_back(token4);
+  
+  //initialize location variable
+  int loc = 0;
+  
+  bool result1 = procedure_Body(all_tokens, loc);
+  if (result1) 
+  {
+    std::cout << "Test case 16: Passed" << std::endl;
+  } else 
+  {
+    std::cout << "Test case 16: Failed" << std::endl;
+  }
+
+}
 
 // R15. <Statement> :: = <Compound> | <Assign> | <If> | <Return> | <Print> | <Scan> | <While>
 //---------------------------------------------------------------------------------------------------
@@ -359,6 +427,41 @@ void test_R12()
 // R9. <Body>  :: = { < Statement List> }
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Body(vector<token_323>& all_tokens, int& loc);
+void test_R9() 
+{
+  vector<token_323> all_tokens;
+
+  // Add tokens for a valid statement list
+  token_323 token1, token2, token3;
+  token1.token_update("Keyword");
+  token1.lexeme_update("int");
+  token2.token_update("Identifier");
+  token2.lexeme_update("x");
+  token3.token_update("Delimiter");
+  token3.lexeme_update(";");
+  all_tokens.push_back(token1);
+  all_tokens.push_back(token2);
+  all_tokens.push_back(token3);
+  token_323 token4, token5;
+  token4.token_update("Delimiter");
+  token4.lexeme_update("{");
+  token5.token_update("Delimiter");
+  token5.lexeme_update("}");
+  all_tokens.push_back(token4);
+  
+  //initialize location variable
+  int loc = 0;
+  
+  bool result1 = procedure_Body(all_tokens, loc);
+  if (result1) 
+  {
+    std::cout << "Test case 9: Passed" << std::endl;
+  } else 
+  {
+    std::cout << "Test case 9: Failed" << std::endl;
+  }
+
+}
 
 // R8. <Qualifier> :: = int | boolean | real
 //---------------------------------------------------------------------------------------------------
@@ -564,6 +667,7 @@ int main(int argc, char *argv[])
   // R21 <Scan>
   //
   // R20 <Print>
+  //test_R20();
   //
   // R19 <Return>
   //test_R19();
@@ -572,6 +676,7 @@ int main(int argc, char *argv[])
   // R17 <Assign>
   //
   // R16 <Compound>
+  //test_R16();
   //
   // R15 <Statement>
   //
@@ -586,6 +691,7 @@ int main(int argc, char *argv[])
   // R10 <Opt Declaration List>
   //
   // R9 <Body>
+  //test_R9();
   //
   // R8 <Qualifier>
   //Failed
