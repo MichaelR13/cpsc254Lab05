@@ -198,36 +198,66 @@ void test_R23()
 // bool procedure_Print(vector<token_323>& all_tokens, int& loc);
 void test_R20()
 {
-  vector<token_323> all_tokens;
+    vector<token_323> all_tokens;
+    int loc = 0;
+    bool result;
 
-  // Add tokens to vector
-  token_323 token1, token2, token3, token4, token5;
-  token1.token_update("Keyword");
-  token1.lexeme_update("put");
-  token2.token_update("Symbol");
-  token2.lexeme_update("(");
-  token3.token_update("Number");
-  token3.lexeme_update("42");
-  token4.token_update("Symbol");
-  token4.lexeme_update(")");
-  token5.token_update("Symbol");
-  token5.lexeme_update(";");
-  all_tokens.push_back(token1);
-  all_tokens.push_back(token2);
-  all_tokens.push_back(token3);
-  all_tokens.push_back(token4);
-  all_tokens.push_back(token5);
+    // create token for "put" keyword
+    token_323 token1;
+    token1.token_update("put");
+    token1.lexeme_update("put");
+    all_tokens.push_back(token1);
 
-  int loc = 0;
-  bool result = procedure_Print(all_tokens, loc);
-  if (result)
-  {
-    std::cout << "Test case 20: Passed" << std::endl;
-  } else 
-  {
-    std::cout << "Test case 20: Failed" << std::endl;
+    // create token for "(" symbol
+    token_323 token2;
+    token2.token_update("(");
+    token2.lexeme_update("(");
+    all_tokens.push_back(token2);
+
+    // create token for "3" number
+    token_323 token3;
+    token3.token_update("3");
+    token3.lexeme_update("3");
+    all_tokens.push_back(token3);
+
+    // create token for ")" symbol
+    token_323 token4;
+    token4.token_update(")");
+    token4.lexeme_update(")");
+    all_tokens.push_back(token4);
+
+    // create token for ";" symbol
+    token_323 token5;
+    token5.token_update(";");
+    token5.lexeme_update(";");
+    all_tokens.push_back(token5);
+
+    // create token for "EOF" symbol
+    token_323 token6;
+    token6.token_update("EOF");
+    token6.lexeme_update("EOF");
+    all_tokens.push_back(token6);
+
+    // create token for "3" number
+    token_323 token7;
+    token7.token_update("3");
+    token7.lexeme_update("3");
+    all_tokens.push_back(token7);
+
+    // call procedure_Print with the created tokens
+    result = procedure_Print(all_tokens, loc);
+
+    // check if the function returned true
+    if (result) {
+        std::cout << "Test case passed!" << std::endl;
+    } else {
+        std::cout << "Test case failed!" << std::endl;
+    }
+
+    std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
   }
-
 }
 
 // R19. <Return> :: = return; | return <Expression>;
@@ -340,6 +370,10 @@ void test_R16()
   } else 
   {
     std::cout << "Test case 16: Failed" << std::endl;
+  }
+   std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
   }
 
 }
@@ -459,6 +493,10 @@ void test_R9()
   } else 
   {
     std::cout << "Test case 9: Failed" << std::endl;
+  }
+   std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
   }
 
 }
