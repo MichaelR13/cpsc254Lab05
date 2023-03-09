@@ -256,6 +256,39 @@ void test_R12()
 // R8. <Qualifier> :: = int | boolean | real
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Qualifier(vector<token_323>& all_tokens, int& loc);
+void test_R8()
+{
+  std::ifstream input_file("temp.txt");
+  bool test_results = false;
+  std::vector<token_323> all_tokens;
+  int loc = 0;
+  int check_eof;
+
+  while (!input_file.eof()) {
+    all_tokens.push_back(lexer_323(input_file));
+    check_eof = input_file.peek();
+    if (check_eof == EOF) {
+      break;
+    }
+  }
+
+  test_results = procedure_Qualifier(all_tokens, loc);
+
+  if (test_results == false) {
+    std::cout << "Failed: Testing of R8 <Qualifier>" << std::endl;
+  } else {
+    std::cout << "Passed: Testing of R8 <Qualifier>" << std::endl;
+  }
+
+  std::cout << "Here are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
+  }
+
+  input_file.close();
+
+  return;
+}
 
 // R7. <Parameter> :: = <IDs >  <Qualifier>
 //---------------------------------------------------------------------------------------------------
@@ -408,7 +441,8 @@ int main(int argc, char *argv[])
   // R9 <Body>
   //
   // R8 <Qualifier>
-  //
+  //Failed
+  //test_R8();
   // R7 <Parameter>
   //test_R7();
   // R6 <Parameter List>
