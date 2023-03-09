@@ -57,6 +57,40 @@
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Return(vector<token_323>& all_tokens, int& loc);
 
+void test_R19() {
+  std::vector<token_323> all_tokens;
+  int loc = 0;
+
+    // Create tokens for test case
+  token_323 return_token;
+  return_token.token_update("Keyword");
+  return_token.lexeme_update("return");
+
+  token_323 semicolon_token;
+  semicolon_token.token_update("Operator");
+  semicolon_token.lexeme_update(";");
+
+  all_tokens.push_back(return_token);
+  all_tokens.push_back(semicolon_token);
+
+    // Call function being tested
+  bool results = procedure_Return(all_tokens, loc);
+
+    // Check results
+  if (results) {
+        std::cout << "\nTest passed: <Return> -> return;" << std::endl;
+  } else {
+        std::cout << "\nTest failed: <Return> -> return;" << std::endl;
+  }
+
+  std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
+  }
+
+}
+
+
 // R18. <If> :: = if (<Condition>) < Statement > fi | if (<Condition>) < Statement > else  <Statement>  fi
 //---------------------------------------------------------------------------------------------------
 // bool procedure_If(vector<token_323>& all_tokens, int& loc);
@@ -110,6 +144,33 @@ void test_R18()
 //---------------------------------------------------------------------------------------------------
 // bool procedure_IDs(vector<token_323>& all_tokens, int& loc);
 
+void test_R13() {
+    
+    std::vector<token_323> all_tokens;
+    int loc = 0;
+
+    // Create tokens for test case
+    token_323 ids_token;
+    ids_token.token_update("IDs");
+    ids_token.lexeme_update("a,b,c");
+
+    all_tokens.push_back(ids_token);
+
+    // Call function being tested
+    bool results = procedure_IDs(all_tokens, loc);
+
+    // Check results
+    if (results) {
+        std::cout << "\nTest passed: <IDs> -> <Identifier>, <IDs>" << std::endl;
+    } else {
+        std::cout << "\nTest failed: <IDs> -> <Identifier>, <IDs>" << std::endl;
+    }
+  std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
+  }
+}
+
 // R12. <Declaration> :: = <Qualifier > <IDs>
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Declaration(vector<token_323>& all_tokens, int& loc);
@@ -162,6 +223,39 @@ void test_R12()
 // R7. <Parameter> :: = <IDs >  <Qualifier>
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Parameter(vector<token_323>& all_tokens, int& loc);
+void test_R7() 
+{
+
+    std::vector<token_323> all_tokens;
+    int loc = 0;
+
+    // Create tokens for test case
+    token_323 ids_token;
+    ids_token.token_update("IDs");
+    ids_token.lexeme_update("a,b,c");
+
+    token_323 qualifier_token;
+    qualifier_token.token_update("Qualifier");
+    qualifier_token.lexeme_update("const");
+
+    all_tokens.push_back(ids_token);
+    all_tokens.push_back(qualifier_token);
+
+    // Call function being tested
+    bool results = procedure_Parameter(all_tokens, loc);
+
+    // Check results
+    if (results) {
+        std::cout << "\nTest passed: <Parameter> -> <IDs> <Qualifier>" << std::endl;
+    } else {
+        std::cout << "\nTest failed: <Parameter> -> <IDs> <Qualifier>" << std::endl;
+    }
+  std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
+  }
+}
+
 
 // R6. <Parameter List>  :: = <Parameter> | <Parameter>, <Parameter List>
 //---------------------------------------------------------------------------------------------------
@@ -231,6 +325,7 @@ void test_R5()
 
 int main(int argc, char *argv[])
 {
+  //Uncomment whatever function you would like to test
   // R28 <Primary>
   //
   // R27 <Factor>
@@ -254,7 +349,7 @@ int main(int argc, char *argv[])
   // R20 <Print>
   //
   // R19 <Return>
-  //
+  //test_R19();
   // R18 <If>
   //test_R18();
   // R17 <Assign>
@@ -266,7 +361,7 @@ int main(int argc, char *argv[])
   // R14 <Statement List>
   //
   // R13 <IDs>
-  //
+  //test_R13();
   // R12 <Declaration>
   //test_R12();
   // R11 <Declaration List>
@@ -278,7 +373,7 @@ int main(int argc, char *argv[])
   // R8 <Qualifier>
   //
   // R7 <Parameter>
-  //
+  //test_R7();
   // R6 <Parameter List>
   //
   // R5 <Opt Parameter List>
