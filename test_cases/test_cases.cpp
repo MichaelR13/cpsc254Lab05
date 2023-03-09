@@ -16,6 +16,39 @@
 // R27. <Factor> :: = -<Primary> | <Primary>
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Factor(vector<token_323>& all_tokens, int& loc);
+void test_R27()
+{
+    std::ifstream input_file("temp.txt");
+    bool test_results = false;
+    std::vector<token_323> all_tokens;
+    int loc = 0;
+    int check_eof;
+
+    while (!input_file.eof()) {
+        all_tokens.push_back(lexer_323(input_file));
+        check_eof = input_file.peek();
+        if (check_eof == EOF) {
+            break;
+        }
+    }
+
+    test_results = procedure_Factor(all_tokens, loc);
+
+    if (test_results == false) {
+        std::cout << "Failed: Testing of R27 <Factor>" << std::endl;
+    } else {
+        std::cout << "Passed: Testing of R27 <Factor>" << std::endl;
+    }
+
+    std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+    for (auto token : all_tokens) {
+        token.token_print_helper();
+    }
+
+    input_file.close();
+
+    return;
+}
 
 // R26.1 <Term'> :: = * <Factor> <Term>' | / <Factor> <Term>' | ϵ
 //---------------------------------------------------------------------------------------------------
@@ -77,6 +110,39 @@ void test_R26_1() {
 // R23. <Condition> :: = <Expression>  <Relop>   <Expression>
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Condition(vector<token_323>& all_tokens, int& loc);
+void test_R23()
+{
+  std::ifstream input_file("temp.txt");
+  bool test_results = false;
+  std::vector<token_323> all_tokens;
+  int loc = 0;
+  int check_eof;
+
+  while (!input_file.eof()) {
+    all_tokens.push_back(lexer_323(input_file));
+    check_eof = input_file.peek();
+    if (check_eof == EOF) {
+      break;
+    }
+  }
+
+  test_results = procedure_Condition(all_tokens, loc);
+
+  if (test_results == false) {
+    std::cout << "Failed: Testing of R23 <Condition>" << std::endl;
+  } else {
+    std::cout << "Passed: Testing of R23 <Condition>" << std::endl;
+  }
+
+  std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
+  }
+
+  input_file.close();
+
+  return;
+}
 
 // R22. <While> :: = while (<Condition>) < Statement >
 //---------------------------------------------------------------------------------------------------
@@ -399,7 +465,8 @@ int main(int argc, char *argv[])
   // R28 <Primary>
   //
   // R27 <Factor>
-  //
+  //Failed
+  //test_R27();
   // R26.1 <Term'>
   //
   // R26 <Term>
@@ -411,7 +478,8 @@ int main(int argc, char *argv[])
   // R24 <Relop>
   //
   // R23 <Condition>
-  //
+  //Failed
+  //test_R23();
   // R22 <While>
   //
   // R21 <Scan>
