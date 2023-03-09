@@ -95,6 +95,47 @@ void test_R26_1() {
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Term(vector<token_323>& all_tokens, int& loc);
 
+void test_R21() {
+  // Open the input file
+  std::ifstream input_file("temp.txt");
+
+  // Check if the file was opened successfully
+  if (!input_file.is_open()) {
+    std::cout << "Failed to open input file" << std::endl;
+    return;
+  }
+
+  // Read the input from the file and store it in a vector of tokens
+  std::vector<token_323> all_tokens;
+  int loc = 0;
+  int check_eof;
+
+  while (!input_file.eof()) {
+    all_tokens.push_back(lexer_323(input_file));
+    check_eof = input_file.peek();
+    if (check_eof == EOF) {
+      break;
+    }
+  }
+
+  // Call the procedure and check the results
+  bool test_results = procedure_Scan(all_tokens, loc);
+  if (test_results == false) {
+    std::cout << "Failed: Testing of R21 <Scan>" << std::endl;
+  } else {
+    std::cout << "Passed: Testing of R21 <Scan>" << std::endl;
+  }
+
+  // Print out all the tokens in the vector
+  std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
+  }
+}
+
+
+
+
 // R25. <Expression>  :: = <Term> <Expression'>
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Expression(vector<token_323>& all_tokens, int& loc);
@@ -450,6 +491,44 @@ void test_R5()
 // R3. <Function Definitions>  :: = <Function> | <Function> <Function Definitions>
 //---------------------------------------------------------------------------------------------------
 // bool procedure_Function_Definitions(vector<token_323>& all_tokens, int& loc);
+void test_R3()
+{
+  // Open the input file
+  std::ifstream input_file("temp.txt");
+  
+  // Check if the file was opened successfully
+  if (!input_file.is_open()) {
+    std::cout << "Failed to open input file" << std::endl;
+    return;
+  }
+
+  // Read the input from the file and store it in a vector of tokens
+  std::vector<token_323> all_tokens;
+  int loc = 0;
+  int check_eof;
+
+  while (!input_file.eof()) {
+    all_tokens.push_back(lexer_323(input_file));
+    check_eof = input_file.peek();
+    if (check_eof == EOF) {
+      break;
+    }
+  }
+
+  // Call the procedure and check the results
+  bool test_results = procedure_Function_Definitions(all_tokens, loc);
+  if (test_results == false) {
+    std::cout << "Failed: Testing of R3 <Function Definitions>" << std::endl;
+  } else {
+    std::cout << "Passed: Testing of R3 <Function Definitions>" << std::endl;
+  }
+
+  // Print out all the tokens in the vector
+  std::cout << "\nHere are all the tokens in the vector:" << std::endl;
+  for (auto token : all_tokens) {
+    token.token_print_helper();
+  }
+}
 
 // R2. <Opt Function Definitions> :: = <Function Definitions> | <Empty>
 //---------------------------------------------------------------------------------------------------
